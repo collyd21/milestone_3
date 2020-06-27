@@ -20,6 +20,7 @@
       <td>{{permit.sub_contractor}}</td>
       <td>{{permit.location}}</td>
       <td>{{permit.crew_size}}</td>
+      <td><a class="btn btn-primary" href="{{url_for('view_permit', permits_id=permit._id)}}" role="button">View Permit</a></td>
       <td><a class="btn btn-warning" href="{{url_for('edit_permit', permits_id=permit._id)}}" role="button">Edit Permit</a></td>
     </tr>
   </tbody>

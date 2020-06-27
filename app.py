@@ -90,6 +90,11 @@ def update_permit(permits_id):
     return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
 
 
+@app.route('/view_permit/<permits_id>')
+def view_permit(permits_id):
+    the_permits =  mongo.db.permits.find_one({"_id": ObjectId(permits_id)})
+    return render_template('view_permit.html', permit=the_permits)
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
