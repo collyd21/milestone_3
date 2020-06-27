@@ -35,6 +35,18 @@ def permits():
     return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
 
 
+@app.route('/new_permit')
+def new_permit():
+    return render_template("new_permit.html")
+
+
+@app.route('/add_permit', methods=['POST'])
+def add_permit():
+    permits =  mongo.db.permits
+    permits.insert(request.form.to_dict())
+    return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
+
+
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
