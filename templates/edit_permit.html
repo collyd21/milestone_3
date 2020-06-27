@@ -1,0 +1,312 @@
+{% extends 'base.html' %} {% block content %}
+
+    <div class="container">
+    <div class="row">
+    <div class="col-12">
+    <div class="permit-bar">GENERAL WORK PERMIT
+    </div>
+    </div>
+    </div>
+    <br>
+
+    <div class="container grey-container">
+    <form action="" method="POST" autocomplete="off">
+    <br>
+    <div class="row">
+    <div class="col-6">
+      <div class="form-group"> <!-- Date input -->
+        <label class="control-label" for="date">Date</label>
+        <input class="form-control" id="date" name="date" type="text" value="{{permit.date}}"/>
+      </div>
+      </div>
+      <div class="col-6">
+      <div class="form-group"> <!-- Crew Size -->
+    <label for="crew_size">Size of Work Crew</label>
+      <input name="crew_size" id="crew_size" class="form-control" type="text" value="{{permit.crew_size}}">
+      </div>
+      </div>
+    </div>
+      <div class="row">
+    <div class="col-6">
+    <div class="form-group"> <!-- Location -->
+      <label for="location">Location</label>
+      <input name="location" id="location" class="form-control" type="text" placeholder="Provide specific details" value="{{permit.location}}">
+      </div>
+      </div>
+      <div class="col-6">
+      <div class="form-group"> <!-- Supervisor Name -->
+      <label for="supervisor">Name of Supervisor/Foreman</label>
+      <input name="supervisor" id="supervisor" class="form-control" type="text" value="{{permit.supervisor}}">
+      </div>
+      </div>
+      </div>
+
+                                <!-- Contractor Information -->
+    
+    <div class="row">
+    <div class="col-12">
+    <div class="form-group"> <!-- Request By -->
+    <label for="request_by">Requested By</label>
+    <input name="request_by" id="request_by" class="form-control" type="text" value="{{permit.request_by}}">
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6">
+    <div class="form-group"> <!-- Contractor Name -->
+      <label for="contractor">Contractor Name</label>
+      <input name="contractor" id ="contractor" class="form-control" type="text" value="{{permit.contractor}}">
+      </div>
+      </div>
+      <div class="col-6">
+      <div class="form-group"> <!-- Sub-Contractor Name -->
+      <label for="sub_contractor">Sub-Contractor Name</label>
+      <input name="sub_contractor" id="sub_contractor" class="form-control" type="text" placeholder="If applicable" value="{{permit.sub_contractor}}">
+      </div>
+      </div>
+      </div>
+
+                                <!-- Work Description -->
+    
+<div class="row">
+    <div class="col-12">
+    <div class="form-group"> <!-- Work Description -->
+    <label for="work_description">Work Description</label>
+    <input name="work_description" id="work_description" class="form-control" type="text" value="{{permit.work_description}}">
+    </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-6">
+    <div class="form-group"> <!-- System Name -->
+      <label for="system_name">System Name</label>
+      <input name="system_name" id="system_name" class="form-control" type="text"placeholder="If applicable" value="{{permit.system_name}}">
+      </div>
+      </div>
+      <div class="col-6">
+      <div class="form-group"> <!-- System Number -->
+      <label for="system_number">System Number</label>
+      <input name="system_number" id="system_number" class="form-control" type="text" placeholder="If applicable" value="{{permit.system_number}}">
+      </div>
+      </div>
+      </div>
+                                <!-- Equipment/Tools Required -->
+    
+    <div class="row">
+    <div class="col-12">
+    <div class="form-group">
+    <label for="equipment_tools">List all Equipment/Tools Required</label>
+    <textarea name="equipment_tools" id="equipment_tools" class="form-control" id="equipment_tools" rows="3">{{permit.equipment_tools}}</textarea>
+    </div>
+    </div>
+    </div>
+                                <!-- Controls of Work -->
+
+    <div class="row">
+    <div class="col-4">
+    <div class="custom-control custom-switch">      <!-- Method Statement -->
+    {% if permit.method %}
+        <input type="checkbox" class="custom-control-input" name="method" id="method" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="method" id="method">
+    {% endif %}
+    <label class="custom-control-label" for="method">Accepted Method Statement</label>
+    </div>
+    </div>
+    <div class="col-4">
+    <div class="custom-control custom-switch">      <!-- Risk Assessment -->
+    {% if permit.risk %}
+        <input type="checkbox" class="custom-control-input" name="risk" id="risk" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="risk" id="risk">
+    {% endif %}
+    <label class="custom-control-label" for="risk">Risk Assessment</label>
+    </div>
+    </div>
+    <div class="col-4">
+    <div class="custom-control custom-switch">      <!-- SPA -->
+    {% if permit.spa %}
+        <input type="checkbox" class="custom-control-input" name="spa" id="spa" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="spa" id="spa">
+    {% endif %}
+    <label class="custom-control-label" for="spa">Safe Plan of Action - SPA</label>
+    </div>
+    </div>
+    </div>
+<br>
+                                <!-- Title Break -->
+
+    <div class="row">
+    <div class="col-2">
+    <div class="permit-bar">Work Involved
+    </div>
+    </div>
+    <div class="col-10">
+    <div class="permit-bar">If work type involved complete this section
+    </div>
+    </div>
+    </div>
+    
+                                <!-- Work Involvement -->
+
+    <!-- Excavation -->
+    <div class="row">
+    <div class="col-2">
+    <div class="custom-control custom-switch">      <!-- Excavation -->
+    {% if permit.excavation %}
+        <input type="checkbox" class="custom-control-input" name="excavation" id="excavation" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="excavation" id="excavation">
+    {% endif %}
+    <label class="custom-control-label" for="excavation">Excavation</label>
+    </div>
+    </div>
+    <div class="col-2">
+    <div class="custom-control custom-switch">      <!-- Scanned -->
+    {% if permit.scanned %}
+        <input type="checkbox" class="custom-control-input" name="scanned" id="scanned" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="scanned" id="scanned">
+    {% endif %}
+    <label class="custom-control-label" for="scanned">Scanned</label>
+    </div>
+    </div>
+    <div class="col-2">
+    <div class="custom-control custom-switch">      <!-- Shored -->
+    {% if permit.shored %}
+        <input type="checkbox" class="custom-control-input" name="shored" id="shored" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="shored" id="shored">
+    {% endif %}
+    <label class="custom-control-label" for="shored">Shored</label>
+    </div>
+    </div>
+    <div class="col-2">
+    <div class="custom-control custom-switch">      <!-- Battered -->
+    {% if permit.battered %}
+        <input type="checkbox" class="custom-control-input" name="battered" id="battered" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="battered" id="battered">
+    {% endif %}
+    <label class="custom-control-label" for="battered">Battered</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Construction Skills Card -->
+    {% if permit.skills_card %}
+        <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card">
+    {% endif %}
+    <label class="custom-control-label" for="skills_card">Construction Skills Card</label>
+    </div>
+    </div>
+    </div>
+
+                                    <!-- Confined Space -->
+    <div class="row">
+    <div class="col-2">
+    <div class="custom-control custom-switch">      <!-- Confined Space -->
+    {% if permit.confined_space %}
+        <input type="checkbox" class="custom-control-input" name="confined_space" id="confined_space" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="confined_space" id="confined_space">
+    {% endif %}
+    <label class="custom-control-label" for="confined_space">Confined Space</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Atmosphere Tested -->
+    {% if permit.atmosphere %}
+        <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere">
+    {% endif %}
+    <label class="custom-control-label" for="atmosphere">Atmosphere Tested</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Trained Persons -->
+    {% if permit.trained_persons %}
+        <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons">
+    {% endif %}
+    <label class="custom-control-label" for="trained_persons">Trained Persons</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Emergency O2 -->
+    {% if permit.emerg_o2 %}
+        <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2">
+    {% endif %}
+    <label class="custom-control-label" for="emerg_o2">Emergency O2</label>
+    </div>
+    </div>
+    </div>
+
+                                    <!-- Electrical Works -->
+    <div class="row">
+    <div class="col-2">
+    <div class="custom-control custom-switch">      <!-- Electrical Works -->
+    {% if permit.elec_works %}
+        <input type="checkbox" class="custom-control-input" name="elec_works" id="elec_works" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="elec_works" id="elec_works">
+    {% endif %}
+    <label class="custom-control-label" for="elec_works">Electrical Works</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Locked Out -->
+    {% if permit.locks %}
+        <input type="checkbox" class="custom-control-input" name="locks" id="locks" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="locks" id="locks">
+    {% endif %}
+    <label class="custom-control-label" for="locks">Locked Out</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Personnel Locks -->
+    {% if permit.persons_locks %}
+        <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks">
+    {% endif %}
+    <label class="custom-control-label" for="persons_locks">Personnel Locks</label>
+    </div>
+    </div>
+    <div class="col-3">
+    <div class="custom-control custom-switch">      <!-- Energy Released -->
+    {% if permit.energy_released %}
+        <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released" checked>
+    {% else %}
+        <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released">
+    {% endif %}
+    <label class="custom-control-label" for="energy_released">Energy Released</label>
+    </div>
+    </div>
+    </div>
+<br>
+                                <!-- Specific Task Hazards and Precautions -->
+    
+    <div class="row">
+    <div class="col-12">
+    <div class="form-group">
+    <label for="hazards">List all Task Hazards and Precautions to be taken</label>
+    <textarea class="form-control" name="hazards" id="hazards" rows="3">{{permit.hazards}}</textarea>
+    </div>
+    </div>
+    </div>
+
+      <!-- Submit button -->
+        <button class="btn btn-primary " type="submit">Submit</button>
+      
+     </form>
+</div>
+
+{% endblock %}

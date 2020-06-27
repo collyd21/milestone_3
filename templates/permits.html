@@ -9,6 +9,7 @@
       <th scope="col">Sub-Contractor</th>
       <th scope="col">Location</th>
       <th scope="col">Crew Size</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   {% for permit in permits %}
@@ -19,6 +20,7 @@
       <td>{{permit.sub_contractor}}</td>
       <td>{{permit.location}}</td>
       <td>{{permit.crew_size}}</td>
+      <td><a class="btn btn-warning" href="{{url_for('edit_permit', permits_id=permit._id)}}" role="button">Edit Permit</a></td>
     </tr>
   </tbody>
   {% endfor %}
