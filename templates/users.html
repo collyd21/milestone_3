@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container">
+<div class="row d-flex justify-content-around">
+{% for user in users %}
+<div class=" tile col-md-3 usersContainer">
+<img class="card-img-top" src="{{url_for('static', filename='images/generic-avatar.png')}}" alt="user">
+<h4 class="tile-h4">{{user.first_name}}  {{user.last_name}}</h4>
+<p class="tile-p">{{user.title}}</p>
+<p class="tile-p">{{user.company}}</p>
+</div>
+{% endfor %}
+</div>
+</div>
+
+{% endblock %}
