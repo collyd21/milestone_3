@@ -30,6 +30,12 @@ def add_user():
     return render_template("users.html", users=mongo.db.users.find())
 
 
+@app.route('/permits')
+def permits():
+    return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
+
+
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=(os.environ.get('PORT')),
