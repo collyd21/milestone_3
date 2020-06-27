@@ -1,0 +1,35 @@
+                                    
+                                    /* USERS */
+
+.usersContainer{
+    background-color:rgba(240, 240, 240, 0.904);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 5px 5px grey;
+}
+
+.tile-h4 {
+    margin-top: 10px;
+    text-align: center;
+    color: orange;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.tile-p {
+    text-align: center;
+    text-transform: capitalize; 
+}
+
+.tile:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px grey;
+}
+
+.grey-container {
+    border: 1px solid rgb(240, 230, 230);
+    background-color: rgba(240, 240, 240, 0.904);
+    border-radius: 2px;
+    box-shadow: 0px 0px 5px grey;
+}

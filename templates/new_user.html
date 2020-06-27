@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container grey-container">
+<br>
+<form action="{{ url_for('add_user') }}" method="POST" autocomplete="off">
+  <div class="form-group">
+    <label for="first_name">First Name</label>
+    <input type="text" class="form-control" id="first_name" name="first_name">
+  </div>
+<div class="form-group">
+    <label for="last_name">Last Name</label>
+    <input type="text" class="form-control" id="last_name" name="last_name">
+  </div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <select class="form-control" id="title" name="title">
+    <option>Select..</option>
+    <option>General Operative</option>
+    <option>Electrician</option>
+    <option>Foreman</option>
+    <option>Supervisor</option>
+    </select>
+  </div>
+<div class="form-group">
+    <label for="company">Company</label>
+    <input type="text" class="form-control" id="company" name="company">
+  </div>
+<div class="form-group">
+    <label for="password">Password</label>
+    <input type="text" class="form-control" id="password" name="password">
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+{% endblock %}
