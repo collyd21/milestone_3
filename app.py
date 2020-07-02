@@ -17,6 +17,16 @@ mongo = PyMongo(app)
 def get_users():
     return render_template("users.html", users=mongo.db.users.find())
 
+@app.route('/admin_login', methods=['GET', 'POST'])
+def admin_login():
+    error = None
+    if request.method == 'POST':
+        if request.form['password'] != "admin":
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('permits_admin'))
+    return render_template('admin_login.html', error=error)
+
 
 @app.route('/login/<users_id>', methods=['GET', 'POST'])
 def login(users_id):

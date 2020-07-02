@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="login_welcome">Welcome Administrator</h1>
+<br>
+<div class="container grey-container col-6">
+<div class="row">
+<div class="col-12 login_text">
+<br>
+      <p>Please enter login details.</p>
+      <br>
+<form action="{{url_for('admin_login')}}" method="post">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-primary" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    </div>
+    </div>
+    </div>
+{% endblock %}
