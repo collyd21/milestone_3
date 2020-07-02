@@ -18,6 +18,18 @@ def get_users():
     return render_template("users.html", users=mongo.db.users.find())
 
 
+@app.route('/login/<users_id>', methods=['GET', 'POST'])
+def login(users_id):
+    error = None
+    the_users =  mongo.db.users.find_one({"_id": ObjectId(users_id)})
+    if request.method == 'POST':
+        if request.form['password'] != the_users["password"]:
+            error = 'Invalid Credentials. Please try again.'
+        else:
+            return redirect(url_for('permits'))
+    return render_template('login.html', error=error, user=the_users)
+
+
 @app.route('/new_user')
 def new_user():
     return render_template("new_user.html")
@@ -96,7 +108,7 @@ def view_permit(permits_id):
     return render_template('view_permit.html', permit=the_permits)
 
 
-if __name__ == '__main__':
-    app.run(host=os.environ.get('IP'),
-            port=(os.environ.get('PORT')),
+if __name__ == "__main__":
+    app.run(host=os.getenv("IP", "0.0.0.0"),
+            port=int(os.getenv("PORT", "5000")),
             debug=True)

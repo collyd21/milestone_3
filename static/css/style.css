@@ -1,4 +1,26 @@
+                                    /* BACKGROUND */
                                     
+.back-img {
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("https://wallup.net/wp-content/uploads/2019/09/455851-construction-work-building-job-profession-architecture-design-2-748x529.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+                                    /* LOGIN */
+
+.login_welcome {
+    text-align: center;
+    font-weight: bold;
+    color: orange;
+    text-transform: capitalize; 
+}
+
+.login_text {
+    text-align: center; 
+}
+
                                     /* USERS */
 
 .usersContainer{
