@@ -13,12 +13,43 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
 
 """
-VIEWING USERS
+VIEWING USERS AS USER
 """
 @app.route('/')
 @app.route('/get_users')
 def get_users():
     return render_template("users.html", users=mongo.db.users.find())
+
+
+"""
+VIEWING ALL PERMITS AS USER
+"""
+@app.route('/users_admin')
+def users_admin():
+    return render_template("users_admin.html", users=mongo.db.users.find().sort("last_name"))
+
+
+"""
+ADDING NEW USER
+"""
+@app.route('/new_user')
+def new_user():
+    return render_template("new_user.html")
+
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    users =  mongo.db.users
+    users.insert(request.form.to_dict())
+    return render_template("users.html", users=mongo.db.users.find())
+
+"""
+DELETING PERMITS AS ADMIN
+"""
+@app.route('/delete_user/<users_id>')
+def delete_user(users_id):
+    mongo.db.users.remove({"_id": ObjectId(users_id)})
+    return render_template("users_admin.html", users=mongo.db.users.find().sort("last_name"))
 
 
 """
@@ -48,24 +79,6 @@ def login(users_id):
         else:
             return redirect(url_for('permits'))
     return render_template('login.html', error=error, user=the_users)
-
-
-"""
-VIEWING USERS
-"""
-@app.route('/new_user')
-def new_user():
-    return render_template("new_user.html")
-
-
-"""
-ADDING NEW USER
-"""
-@app.route('/add_user', methods=['POST'])
-def add_user():
-    users =  mongo.db.users
-    users.insert(request.form.to_dict())
-    return render_template("users.html", users=mongo.db.users.find())
 
 
 """
