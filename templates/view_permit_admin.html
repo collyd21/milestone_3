@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('permits')}}">View Permits</a>
+        <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_permit')}}">Add Permit</a>
+        <a class="nav-link" href="{{url_for('permits_admin')}}">View Permits</a>
       </li>
       </ul>
       </div>
@@ -32,33 +32,30 @@
     <br>
 
     <div class="container grey-container">
-    <form action="{{url_for('update_permit', permits_id=permit._id)}}" method="POST" autocomplete="off">
     <br>
     <div class="row">
-    <div class="col-6">
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" type="text" value="{{permit.date}}"/>
+    <div class="col-6 titles">
+    <p>Date</p>
+      <div class="permit-box">
+        {{permit.date}}
       </div>
       </div>
-      <div class="col-6">
-      <div class="form-group"> <!-- Crew Size -->
-    <label for="crew_size">Size of Work Crew</label>
-      <input name="crew_size" id="crew_size" class="form-control" type="text" value="{{permit.crew_size}}">
+      <div class="col-6 titles">
+    <p>Size of Work Crew</p>
+      <div class="permit-box">
+      {{permit.crew_size}}
       </div>
       </div>
     </div>
       <div class="row">
-    <div class="col-6">
-    <div class="form-group"> <!-- Location -->
-      <label for="location">Location</label>
-      <input name="location" id="location" class="form-control" type="text" placeholder="Provide specific details" value="{{permit.location}}">
+    <div class="col-6 titles">
+      <p>Location</p>
+      <div class="permit-box">{{permit.location}}
       </div>
       </div>
-      <div class="col-6">
-      <div class="form-group"> <!-- Supervisor Name -->
-      <label for="supervisor">Name of Supervisor/Foreman</label>
-      <input name="supervisor" id="supervisor" class="form-control" type="text" value="{{permit.supervisor}}">
+      <div class="col-6 titles">
+      <p>Name of Supervisor/Foreman</p>
+      <div class="permit-box">{{permit.supervisor}}
       </div>
       </div>
       </div>
@@ -66,24 +63,21 @@
                                 <!-- Contractor Information -->
     
     <div class="row">
-    <div class="col-12">
-    <div class="form-group"> <!-- Request By -->
-    <label for="request_by">Requested By</label>
-    <input name="request_by" id="request_by" class="form-control" type="text" value="{{permit.request_by}}">
+    <div class="col-12 titles">
+    <p>Requested By</p>
+    <div class="permit-box">{{permit.request_by}}
     </div>
     </div>
     </div>
     <div class="row">
-    <div class="col-6">
-    <div class="form-group"> <!-- Contractor Name -->
-      <label for="contractor">Contractor Name</label>
-      <input name="contractor" id ="contractor" class="form-control" type="text" value="{{permit.contractor}}">
+    <div class="col-6 titles">
+      <p>Contractor Name</p>
+      <div class="permit-box">{{permit.contractor}}
       </div>
       </div>
-      <div class="col-6">
-      <div class="form-group"> <!-- Sub-Contractor Name -->
-      <label for="sub_contractor">Sub-Contractor Name</label>
-      <input name="sub_contractor" id="sub_contractor" class="form-control" type="text" placeholder="If applicable" value="{{permit.sub_contractor}}">
+      <div class="col-6 titles">
+      <p>Sub-Contractor Name</p>
+      <div class="permit-box">{{permit.sub_contractor}}
       </div>
       </div>
       </div>
@@ -91,34 +85,30 @@
                                 <!-- Work Description -->
     
 <div class="row">
-    <div class="col-12">
-    <div class="form-group"> <!-- Work Description -->
-    <label for="work_description">Work Description</label>
-    <input name="work_description" id="work_description" class="form-control" type="text" value="{{permit.work_description}}">
+    <div class="col-12 titles">
+    <p>Work Description</p>
+    <div class="permit-box">{{permit.work_description}}
     </div>
     </div>
     </div>
     <div class="row">
-    <div class="col-6">
-    <div class="form-group"> <!-- System Name -->
-      <label for="system_name">System Name</label>
-      <input name="system_name" id="system_name" class="form-control" type="text"placeholder="If applicable" value="{{permit.system_name}}">
+    <div class="col-6 titles">
+      <p>System Name</p>
+      <div class="permit-box">{{permit.system_name}}
       </div>
       </div>
-      <div class="col-6">
-      <div class="form-group"> <!-- System Number -->
-      <label for="system_number">System Number</label>
-      <input name="system_number" id="system_number" class="form-control" type="text" placeholder="If applicable" value="{{permit.system_number}}">
+      <div class="col-6 titles">
+      <p>System Number</p>
+      <div class="permit-box">{{permit.system_number}}
       </div>
       </div>
       </div>
                                 <!-- Equipment/Tools Required -->
     
     <div class="row">
-    <div class="col-12">
-    <div class="form-group">
-    <label for="equipment_tools">List all Equipment/Tools Required</label>
-    <textarea name="equipment_tools" id="equipment_tools" class="form-control" id="equipment_tools" rows="3">{{permit.equipment_tools}}</textarea>
+    <div class="col-12 titles">
+    <p>List all Equipment/Tools Required</p>
+    <div class="permit-box box-rows">{{permit.equipment_tools}}
     </div>
     </div>
     </div>
@@ -128,9 +118,9 @@
     <div class="col-4">
     <div class="custom-control custom-switch">      <!-- Method Statement -->
     {% if permit.method %}
-        <input type="checkbox" class="custom-control-input" name="method" id="method" checked>
+        <input type="checkbox" class="custom-control-input" name="method" id="method" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="method" id="method">
+        <input type="checkbox" class="custom-control-input" name="method" id="method" disabled>
     {% endif %}
     <label class="custom-control-label" for="method">Accepted Method Statement</label>
     </div>
@@ -138,9 +128,9 @@
     <div class="col-4">
     <div class="custom-control custom-switch">      <!-- Risk Assessment -->
     {% if permit.risk %}
-        <input type="checkbox" class="custom-control-input" name="risk" id="risk" checked>
+        <input type="checkbox" class="custom-control-input" name="risk" id="risk" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="risk" id="risk">
+        <input type="checkbox" class="custom-control-input" name="risk" id="risk"disabled>
     {% endif %}
     <label class="custom-control-label" for="risk">Risk Assessment</label>
     </div>
@@ -148,9 +138,9 @@
     <div class="col-4">
     <div class="custom-control custom-switch">      <!-- SPA -->
     {% if permit.spa %}
-        <input type="checkbox" class="custom-control-input" name="spa" id="spa" checked>
+        <input type="checkbox" class="custom-control-input" name="spa" id="spa" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="spa" id="spa">
+        <input type="checkbox" class="custom-control-input" name="spa" id="spa"disabled>
     {% endif %}
     <label class="custom-control-label" for="spa">Safe Plan of Action - SPA</label>
     </div>
@@ -177,9 +167,9 @@
     <div class="col-2">
     <div class="custom-control custom-switch">      <!-- Excavation -->
     {% if permit.excavation %}
-        <input type="checkbox" class="custom-control-input" name="excavation" id="excavation" checked>
+        <input type="checkbox" class="custom-control-input" name="excavation" id="excavation" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="excavation" id="excavation">
+        <input type="checkbox" class="custom-control-input" name="excavation" id="excavation" disabled>
     {% endif %}
     <label class="custom-control-label" for="excavation">Excavation</label>
     </div>
@@ -187,9 +177,9 @@
     <div class="col-2">
     <div class="custom-control custom-switch">      <!-- Scanned -->
     {% if permit.scanned %}
-        <input type="checkbox" class="custom-control-input" name="scanned" id="scanned" checked>
+        <input type="checkbox" class="custom-control-input" name="scanned" id="scanned" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="scanned" id="scanned">
+        <input type="checkbox" class="custom-control-input" name="scanned" id="scanned" disabled>
     {% endif %}
     <label class="custom-control-label" for="scanned">Scanned</label>
     </div>
@@ -197,9 +187,9 @@
     <div class="col-2">
     <div class="custom-control custom-switch">      <!-- Shored -->
     {% if permit.shored %}
-        <input type="checkbox" class="custom-control-input" name="shored" id="shored" checked>
+        <input type="checkbox" class="custom-control-input" name="shored" id="shored" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="shored" id="shored">
+        <input type="checkbox" class="custom-control-input" name="shored" id="shored" disabled>
     {% endif %}
     <label class="custom-control-label" for="shored">Shored</label>
     </div>
@@ -207,9 +197,9 @@
     <div class="col-2">
     <div class="custom-control custom-switch">      <!-- Battered -->
     {% if permit.battered %}
-        <input type="checkbox" class="custom-control-input" name="battered" id="battered" checked>
+        <input type="checkbox" class="custom-control-input" name="battered" id="battered" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="battered" id="battered">
+        <input type="checkbox" class="custom-control-input" name="battered" id="battered" disabled>
     {% endif %}
     <label class="custom-control-label" for="battered">Battered</label>
     </div>
@@ -217,9 +207,9 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Construction Skills Card -->
     {% if permit.skills_card %}
-        <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card" checked>
+        <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card">
+        <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card" disabled>
     {% endif %}
     <label class="custom-control-label" for="skills_card">Construction Skills Card</label>
     </div>
@@ -231,9 +221,9 @@
     <div class="col-2">
     <div class="custom-control custom-switch">      <!-- Confined Space -->
     {% if permit.confined_space %}
-        <input type="checkbox" class="custom-control-input" name="confined_space" id="confined_space" checked>
+        <input type="checkbox" class="custom-control-input" name="confined_space" id="confined_space" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="confined_space" id="confined_space">
+        <input type="checkbox" class="custom-control-input" name="confined_space" id="confined_space" disabled>
     {% endif %}
     <label class="custom-control-label" for="confined_space">Confined Space</label>
     </div>
@@ -241,9 +231,9 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Atmosphere Tested -->
     {% if permit.atmosphere %}
-        <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere" checked>
+        <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere">
+        <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere" disabled>
     {% endif %}
     <label class="custom-control-label" for="atmosphere">Atmosphere Tested</label>
     </div>
@@ -251,9 +241,9 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Trained Persons -->
     {% if permit.trained_persons %}
-        <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons" checked>
+        <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons">
+        <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons" disabled>
     {% endif %}
     <label class="custom-control-label" for="trained_persons">Trained Persons</label>
     </div>
@@ -261,9 +251,9 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Emergency O2 -->
     {% if permit.emerg_o2 %}
-        <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2" checked>
+        <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2">
+        <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2" disabled>
     {% endif %}
     <label class="custom-control-label" for="emerg_o2">Emergency O2</label>
     </div>
@@ -275,9 +265,9 @@
     <div class="col-2">
     <div class="custom-control custom-switch">      <!-- Electrical Works -->
     {% if permit.elec_works %}
-        <input type="checkbox" class="custom-control-input" name="elec_works" id="elec_works" checked>
+        <input type="checkbox" class="custom-control-input" name="elec_works" id="elec_works" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="elec_works" id="elec_works">
+        <input type="checkbox" class="custom-control-input" name="elec_works" id="elec_works" disabled>
     {% endif %}
     <label class="custom-control-label" for="elec_works">Electrical Works</label>
     </div>
@@ -285,9 +275,9 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Locked Out -->
     {% if permit.locks %}
-        <input type="checkbox" class="custom-control-input" name="locks" id="locks" checked>
+        <input type="checkbox" class="custom-control-input" name="locks" id="locks" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="locks" id="locks">
+        <input type="checkbox" class="custom-control-input" name="locks" id="locks" disabled>
     {% endif %}
     <label class="custom-control-label" for="locks">Locked Out</label>
     </div>
@@ -295,9 +285,9 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Personnel Locks -->
     {% if permit.persons_locks %}
-        <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks" checked>
+        <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks" disabled checked>
     {% else %}
-        <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks">
+        <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks" disabled>
     {% endif %}
     <label class="custom-control-label" for="persons_locks">Personnel Locks</label>
     </div>
@@ -305,7 +295,7 @@
     <div class="col-3">
     <div class="custom-control custom-switch">      <!-- Energy Released -->
     {% if permit.energy_released %}
-        <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released" checked>
+        <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released" disabled checked>
     {% else %}
         <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released">
     {% endif %}
@@ -317,16 +307,15 @@
                                 <!-- Specific Task Hazards and Precautions -->
     
     <div class="row">
-    <div class="col-12">
-    <div class="form-group">
-    <label for="hazards">List all Task Hazards and Precautions to be taken</label>
-    <textarea class="form-control" name="hazards" id="hazards" rows="3">{{permit.hazards}}</textarea>
+    <div class="col-12 titles">
+    <p>List all Task Hazards and Precautions to be taken</p>
+    <div class="permit-box box-rows">{{permit.hazards}}
     </div>
     </div>
     </div>
 
-      <!-- Submit button -->
-        <button class="btn btn-primary " type="submit">Submit</button>
+      <!-- Return to Permits -->
+    <a class="btn btn-warning" href="{{url_for('permits')}}" role="button">Back to Permits</a>
       
      </form>
 </div>

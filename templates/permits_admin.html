@@ -11,10 +11,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('permits')}}">View Permits</a>
+        <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_permit')}}">Add Permit</a>
+        <a class="nav-link" href="{{url_for('permits_admin')}}">View Permits</a>
       </li>
       </ul>
       </div>
@@ -42,8 +42,8 @@
       <td>{{permit.sub_contractor}}</td>
       <td>{{permit.location}}</td>
       <td>{{permit.crew_size}}</td>
-      <td><a class="btn btn-primary" href="{{url_for('view_permit', permits_id=permit._id)}}" role="button">View Permit</a></td>
-      <td><a class="btn btn-warning" href="{{url_for('edit_permit', permits_id=permit._id)}}" role="button">Edit Permit</a></td>
+      <td><a class="btn btn-primary" href="{{url_for('view_permit_admin', permits_id=permit._id)}}" role="button">View Permit</a></td>
+      <td><a class="btn btn-danger" href="{{url_for('delete_permit', permits_id=permit._id)}}" role="button">Delete Permit</a></td>
     </tr>
   </tbody>
   {% endfor %}

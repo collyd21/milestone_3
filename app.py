@@ -12,11 +12,18 @@ app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 
 mongo = PyMongo(app)
 
+"""
+VIEWING USERS
+"""
 @app.route('/')
 @app.route('/get_users')
 def get_users():
     return render_template("users.html", users=mongo.db.users.find())
 
+
+"""
+ADMIN LOGIN
+"""
 @app.route('/admin_login', methods=['GET', 'POST'])
 def admin_login():
     error = None
@@ -28,6 +35,9 @@ def admin_login():
     return render_template('admin_login.html', error=error)
 
 
+"""
+USER LOGIN
+"""
 @app.route('/login/<users_id>', methods=['GET', 'POST'])
 def login(users_id):
     error = None
@@ -40,11 +50,17 @@ def login(users_id):
     return render_template('login.html', error=error, user=the_users)
 
 
+"""
+VIEWING USERS
+"""
 @app.route('/new_user')
 def new_user():
     return render_template("new_user.html")
 
 
+"""
+ADDING NEW USER
+"""
 @app.route('/add_user', methods=['POST'])
 def add_user():
     users =  mongo.db.users
@@ -52,11 +68,24 @@ def add_user():
     return render_template("users.html", users=mongo.db.users.find())
 
 
+"""
+VIEWING ALL PERMITS AS USER
+"""
 @app.route('/permits')
 def permits():
     return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
 
+"""
+VIEWING ALL PERMITS AS ADMIN
+"""
+@app.route('/permits_admin')
+def permits_admin():
+    return render_template("permits_admin.html", permits=mongo.db.permits.find().sort("date"))
 
+
+"""
+ADDING NEW PERMIT
+"""
 @app.route('/new_permit')
 def new_permit():
     return render_template("new_permit.html")
@@ -69,6 +98,9 @@ def add_permit():
     return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
 
 
+"""
+EDITING PERMIT
+"""
 @app.route('/edit_permit/<permits_id>')
 def edit_permit(permits_id):
     the_permits =  mongo.db.permits.find_one({"_id": ObjectId(permits_id)})
@@ -112,10 +144,29 @@ def update_permit(permits_id):
     return render_template("permits.html", permits=mongo.db.permits.find().sort("date"))
 
 
+"""
+VIEWING INDIVIDUAL PERMITS AS USER
+"""
 @app.route('/view_permit/<permits_id>')
 def view_permit(permits_id):
     the_permits =  mongo.db.permits.find_one({"_id": ObjectId(permits_id)})
     return render_template('view_permit.html', permit=the_permits)
+
+"""
+VIEWING INDIVIDUAL PERMITS AS ADMIN
+"""
+@app.route('/view_permit_admin/<permits_id>')
+def view_permit_admin(permits_id):
+    the_permits = mongo.db.permits.find_one({"_id": ObjectId(permits_id)})
+    return render_template('view_permit_admin.html', permit=the_permits)
+
+"""
+DELETING PERMITS AS ADMIN
+"""
+@app.route('/delete_permit/<permits_id>')
+def delete_permit(permits_id):
+    mongo.db.permits.remove({"_id": ObjectId(permits_id)})
+    return render_template("permits_admin.html", permits=mongo.db.permits.find().sort("date"))
 
 
 if __name__ == "__main__":
