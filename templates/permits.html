@@ -23,14 +23,15 @@
 <br>
 
     <div class="container">
+    <div class="table-responsive">
 <table class="table table-body">
   <thead>
     <tr>
       <th scope="col">Date</th>
       <th scope="col">Contractor</th>
-      <th scope="col">Sub-Contractor</th>
       <th scope="col">Location</th>
       <th scope="col">Crew Size</th>
+      <th scope="col"></th>
       <th scope="col"></th>
     </tr>
   </thead>
@@ -39,7 +40,6 @@
     <tr class="each-row">
       <td>{{permit.date}}</td>
       <td>{{permit.contractor}}</td>
-      <td>{{permit.sub_contractor}}</td>
       <td>{{permit.location}}</td>
       <td>{{permit.crew_size}}</td>
       <td><a class="btn btn-primary" href="{{url_for('view_permit', permits_id=permit._id)}}" role="button">View Permit</a></td>
@@ -48,6 +48,7 @@
   </tbody>
   {% endfor %}
 </table>
+</div>
             </div>
             
 {% endblock %}

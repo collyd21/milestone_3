@@ -1,7 +1,7 @@
                                     /* BACKGROUND */
                                     
 .back-img {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("https://wallup.net/wp-content/uploads/2019/09/455851-construction-work-building-job-profession-architecture-design-2-748x529.jpg");
+    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url("https://wallup.net/wp-content/uploads/2019/09/455851-construction-work-building-job-profession-architecture-design-2-748x529.jpg?__cf_chl_jschl_tk__=171180d137aa322c45d3afc8c121bb9779761e5f-1594466163-0-AZbXadDxeMcFSb_sc4y7pErqX9FsQPIjNUy3wHQVNlMcDvVINXgEGDA4RMN_NwK9x0DEaoINJH4s0B8WNTgsI0glmlH3A98Ap8ixQIXGa_bbjBn-pJkLGS6dmoHOrNXo4nYBGtG_ef-VMaAnYegohCBiBzpjyPavJPzynUZkN8WtOjPtzd-aA0_zQEoK7XZnYIebAVzEO0-DihQT_SPZKSK8qjYDBlnaGgh_xJntbb3YEErusBgki8wC2u9bwmaA8JKgE9btSd3kxiufkW2KnH710UIv7ZEzjZeNkRhr8Y7K3QbnaoRSJxUrNECcsXNSr15OGJkxWdnNaQjKKbqQRh2qErgjNGpaT84JrkX9reF8r_of9J2q8JKXURxhwHKC-4g6x4duzl0nCAVStKZynwgF3ZfFxNuA36DcM-eKGtft");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -23,40 +23,48 @@
 
                                     /* USERS */
 
-.usersContainer{
-    background-color:rgba(240, 240, 240, 0.904);
+.card{
+    background-color:rgba(240, 240, 240, 0.904) !important;
     padding: 20px;
     margin: 10px;
     border-radius: 5px;
     box-shadow: 2px 5px 5px grey;
 }
 
-.tile-h4 {
-    margin-top: 10px;
+.card-body {
+    padding: 10px !important;
+}
+
+.card-title {
+    margin-top: 0px;
     text-align: center;
     color: orange;
     font-weight: bold;
     text-transform: capitalize;
 }
 
-.tile-p {
+.card-text {
     text-align: center;
-    text-transform: capitalize; 
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight:500;
 }
 
-.tile:hover {
+.card:hover {
     transform: scale(1.02);
     box-shadow: 0px 0px 10px grey;
 }
+
+                                    /* PERMITS */
 
 .grey-container {
     border: 1px solid rgb(240, 230, 230);
     background-color: rgba(240, 240, 240, 0.904);
     border-radius: 2px;
     box-shadow: 0px 0px 5px grey;
+    margin-bottom: 10px;
 }
                                     
-                                    /* PERMITS */
 
 .table-body {
     border-radius: 2px;

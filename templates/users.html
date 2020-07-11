@@ -20,19 +20,23 @@
 <br>
 
 <div class="container">
-<div class="row d-flex justify-content-around">
+<div class="row">
 {% for user in users %}
-<div class=" tile col-md-3 usersContainer">
-<img class="card-img-top" src="{{url_for('static', filename='images/generic-avatar.png')}}" alt="user">
-<h4 class="tile-h4">{{user.first_name}}  {{user.last_name}}</h4>
-<p class="tile-p">{{user.title}}</p>
-<p class="tile-p">{{user.company}}</p>
-<div class="row d-flex justify-content-around">
+  <div class="col-lg-4">
+    <div class="card">
+    <img class="card-img-top" src="{{url_for('static', filename='images/generic-avatar.png')}}" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title">{{user.first_name}}  {{user.last_name}}</h4>
+        <p class="card-text">{{user.title}}</p>
+        <p class="card-text">{{user.company}}</p>
+        <div class="row d-flex justify-content-around">
 <a class="btn btn-primary" href="{{url_for('login', users_id=user._id)}}" role="button">Login</a>
 </div>
 </div>
+    </div>
+  </div>
 {% endfor %}
-</div>
-</div>
+  </div>
+  </div>
 
 {% endblock %}

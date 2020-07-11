@@ -26,12 +26,14 @@
 <br>
 
     <div class="container">
+    <div class="table-responsive">
 <table class="table table-body">
   <thead>
     <tr>
       <th scope="col">Name</th>
       <th scope="col">Title</th>
       <th scope="col">Company</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   {% for user in users %}
@@ -45,6 +47,7 @@
   </tbody>
   {% endfor %}
 </table>
+</div>
             </div>
             
 {% endblock %}
