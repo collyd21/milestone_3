@@ -45,7 +45,7 @@ def add_user():
     return render_template("users.html", users=mongo.db.users.find())
 
 """
-DELETING PERMITS AS ADMIN
+DELETING USERS AS ADMIN
 """
 @app.route('/delete_user/<users_id>')
 def delete_user(users_id):
