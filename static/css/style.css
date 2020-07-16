@@ -59,11 +59,13 @@
                                     /* PERMITS */
 
 .grey-container {
+    max-width: 80vw;
     border: 1px solid rgb(240, 230, 230);
     background-color: rgba(240, 240, 240, 0.904);
     border-radius: 2px;
     box-shadow: 0px 0px 5px grey;
     margin-bottom: 10px;
+    padding-top: 10px;
 }
                                     
 
