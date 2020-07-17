@@ -1,118 +1,118 @@
-                                    /* BACKGROUND */
-                                    
+/* BACKGROUND */
+
 .back-img {
-    background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('../images/construction-back.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
+	background-image: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('../images/construction-back.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
 }
 
 
-                                    /* LOGIN */
+/* LOGIN */
 
 .page-title {
-    text-align: center;
-    font-weight: bold;
-    color: orange; 
+	text-align: center;
+	font-weight: bold;
+	color: orange;
 }
 
 .login_text {
-    text-align: center !important; 
+	text-align: center !important;
 }
 
 
-                                    /* USERS */
+/* USERS */
 
-.user-cards{
-    background-color:rgba(240, 240, 240, 0.904) !important;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 5px;
-    box-shadow: 2px 5px 5px grey;
+.user-cards {
+	background-color: rgba(240, 240, 240, 0.904) !important;
+	padding: 20px;
+	margin: 10px;
+	border-radius: 5px;
+	box-shadow: 2px 5px 5px grey;
 }
 
 .card-body {
-    padding: 10px !important;
+	padding: 10px !important;
 }
 
 .user-title {
-    margin-top: 0px;
-    text-align: center;
-    color: orange;
-    font-weight: bold;
-    text-transform: capitalize;
+	margin-top: 0px;
+	text-align: center;
+	color: orange;
+	font-weight: bold;
+	text-transform: capitalize;
 }
 
 .user-text {
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 20px;
-    font-weight:500;
+	text-align: center;
+	text-transform: capitalize;
+	font-size: 20px;
+	font-weight: 500;
 }
 
 .user-cards:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 10px grey;
+	transform: scale(1.02);
+	box-shadow: 0px 0px 10px grey;
 }
 
-                                    /* PERMITS */
+
+/* PERMITS */
 
 .grey-container {
-    max-width: 80vw;
-    border: 1px solid rgb(240, 230, 230);
-    background-color: rgba(240, 240, 240, 0.904);
-    border-radius: 2px;
-    box-shadow: 0px 0px 5px grey;
-    margin-bottom: 10px;
-    padding-top: 10px;
+	max-width: 80vw;
+	border: 1px solid rgb(240, 230, 230);
+	background-color: rgba(240, 240, 240, 0.904);
+	border-radius: 2px;
+	box-shadow: 0px 0px 5px grey;
+	margin-bottom: 10px;
+	padding-top: 10px;
 }
-                                    
 
 .table-body {
-    border-radius: 2px;
-    box-shadow: 0px 0px 5px grey;
+	border-radius: 2px;
+	box-shadow: 0px 0px 5px grey;
 }
 
 .table-rows {
-    background-color: rgba(240, 240, 240, 0.904);
+	background-color: rgba(240, 240, 240, 0.904);
 }
 
 .each-row {
-    text-transform: capitalize;
+	text-transform: capitalize;
 }
 
 .each-row:hover {
-    background-color: rgba(233, 232, 232, 0.904);
+	background-color: rgba(233, 232, 232, 0.904);
 }
 
 .permit-bar {
-    text-align: center;
-    background-color: rgb(54, 53, 53);
-    color: white;
-    border-radius: 2px;
+	text-align: center;
+	background-color: rgb(54, 53, 53);
+	color: white;
+	border-radius: 2px;
 }
 
 .permit-box {
-    background-color: #fff;
-    border-radius: .25rem;
-    border: 1px solid #ced4da;
-    display: block;
-    width: 100%;
-    height: calc(1.5em + .75rem + 2px);
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    color: #495057;
-    background-clip: padding-box;
-    margin-bottom: 16px;
+	background-color: #fff;
+	border-radius: .25rem;
+	border: 1px solid #ced4da;
+	display: block;
+	width: 100%;
+	height: calc(1.5em + .75rem + 2px);
+	padding: .375rem .75rem;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	color: #495057;
+	background-clip: padding-box;
+	margin-bottom: 16px;
 }
 
 .box-rows {
-    height: 90px;
+	height: 90px;
 }
 
 .titles p {
-    margin-bottom: 8px;
+	margin-bottom: 8px;
 }

@@ -1,52 +1,48 @@
 {% extends 'base.html' %} {% block content %}
-
 <header>
-<nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('permits_admin')}}">View Permits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('users_admin')}}">View Users</a>
-      </li>
-      </ul>
+   <nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('permits_admin')}}">View Permits</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('users_admin')}}">View Users</a>
+            </li>
+         </ul>
       </div>
-</nav>
+   </nav>
 </header>
 <br>
 <h1 class="page-title">All Users</h1>
 <br>
-    <div class="container">
-    <div class="table-responsive">
-<table class="table table-body">
-  <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Title</th>
-      <th scope="col">Company</th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  {% for user in users %}
-  <tbody class="table-rows">
-    <tr class="each-row">
-      <td>{{user.first_name}}  {{user.last_name}}</td>
-      <td>{{user.title}}</td>
-      <td>{{user.company}}</td>
-      <td><a class="btn btn-danger" href="{{url_for('delete_user', users_id=user._id)}}" role="button">Delete User</a></td>
-    </tr>
-  </tbody>
-  {% endfor %}
-</table>
+<div class="container">
+   <div class="table-responsive">
+      <table class="table table-body">
+         <thead>
+            <tr>
+               <th scope="col">Name</th>
+               <th scope="col">Title</th>
+               <th scope="col">Company</th>
+               <th scope="col"></th>
+            </tr>
+         </thead>
+         {% for user in users %}
+         <tbody class="table-rows">
+            <tr class="each-row">
+               <td>{{user.first_name}}  {{user.last_name}}</td>
+               <td>{{user.title}}</td>
+               <td>{{user.company}}</td>
+               <td><a class="btn btn-danger" href="{{url_for('delete_user', users_id=user._id)}}" role="button">Delete User</a></td>
+            </tr>
+         </tbody>
+         {% endfor %}
+      </table>
+   </div>
 </div>
-            </div>
-            
 {% endblock %}
-

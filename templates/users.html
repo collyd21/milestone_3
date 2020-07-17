@@ -1,45 +1,41 @@
 {% extends 'base.html' %} {% block content %}
-
 <header>
-<nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('admin_login')}}">Admin Login</a>
-      </li>
-      </ul>
+   <nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('admin_login')}}">Admin Login</a>
+            </li>
+         </ul>
       </div>
-</nav>
+   </nav>
 </header>
-
 <h1 class="page-title">Welcome to General Work Permits</h1>
 <div class="container">
-<div class="row">
-{% for user in users %}
-  <div class="col-lg-4">
-    <div class="card user-cards">
-    <img class="card-img-top" src="{{url_for('static', filename='images/generic-avatar.png')}}" alt="Card image cap">
-      <div class="card-body">
-        <h4 class="card-title user-title">{{user.first_name}}  {{user.last_name}}</h4>
-        <p class="card-text user-text">{{user.title}}</p>
-        <p class="card-text user-text">{{user.company}}</p>
-        <div class="row d-flex justify-content-around">
-<a class="btn btn-primary" href="{{url_for('login', users_id=user._id)}}" role="button">Login</a>
+   <div class="row">
+      {% for user in users %}
+      <div class="col-lg-4">
+         <div class="card user-cards">
+            <img class="card-img-top" src="{{url_for('static', filename='images/generic-avatar.png')}}" alt="Card image cap">
+            <div class="card-body">
+               <h4 class="card-title user-title">{{user.first_name}}  {{user.last_name}}</h4>
+               <p class="card-text user-text">{{user.title}}</p>
+               <p class="card-text user-text">{{user.company}}</p>
+               <div class="row d-flex justify-content-around">
+                  <a class="btn btn-primary" href="{{url_for('login', users_id=user._id)}}" role="button">Login</a>
+               </div>
+            </div>
+         </div>
+      </div>
+      {% endfor %}
+   </div>
 </div>
-</div>
-    </div>
-  </div>
-{% endfor %}
-  </div>
-  </div>
-
 {% endblock %}

@@ -1,55 +1,51 @@
 {% extends 'base.html' %} {% block content %}
-
 <header>
-<nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('admin_login')}}">Admin Login</a>
-      </li>
-      </ul>
+   <nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('admin_login')}}">Admin Login</a>
+            </li>
+         </ul>
       </div>
-</nav>
+   </nav>
 </header>
 <br>
-
 <h1 class="page-title">Welcome Administrator</h1>
 <br>
 <div class="container grey-container col-8">
-<div class="row">
-<div class="col-12 login_text">
-<br>
-      <p>Please enter login details.</p>
-      <br>
+   <div class="row">
+      <div class="col-12 login_text">
+         <br>
+         <h4>Please enter login details.</h4>
+         <br>
       </div>
+   </div>
+   <div class="row">
+      <div class="col-12 login_text d-flex justify-content-center">
+         <form action= "{{url_for('admin_login')}}" method="post">
+            <input class="form-control" type="password" placeholder="Password" name="password" value="{{
+               request.form.password }}">
       </div>
-      <div class="row">
-<div class="col-12 login_text d-flex justify-content-center">
-<form action= "{{url_for('admin_login')}}" method="post">
-         <input class="form-control" type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
-          </div>
-      </div>
-          <div class="row">
-<div class="col-12 login_text">
-        <input class="btn btn-primary" type="submit" value="Login">
-        <br><br>
-      </form>
-      </div>
-      </div>
-      {% if error %}
-        <p class="error"><strong>Error:</strong> {{ error }}
+   </div>
+   <div class="row">
+   <div class="col-12 login_text">
+   <input class="btn btn-primary" type="submit" value="Login">
+   <br><br>
+   </form>
+   </div>
+   </div>
+   {% if error %}
+   <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
-    </div>
-          </div>
-    
+</div>
+</div>
 {% endblock %}

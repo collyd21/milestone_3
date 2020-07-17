@@ -1,273 +1,274 @@
 {% extends 'base.html' %} {% block content %}
-
 <header>
-<nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('permits')}}">View Permits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_permit')}}">Add Permit</a>
-      </li>
-      </ul>
+   <nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('permits')}}">View Permits</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('new_permit')}}">Add Permit</a>
+            </li>
+         </ul>
       </div>
-</nav>
+   </nav>
 </header>
 <br>
-
-    <div class="container">
-    <div class="row">
-    <div class="col-12">
-    <div class="permit-bar">GENERAL WORK PERMIT
-    </div>
-    </div>
-    </div>
-    <br>
-
-    <div class="container grey-container">
-    <form action="{{ url_for('add_permit') }}" method="POST" autocomplete="off">
-    <div class="row">
-    <div class="col-lg-6 col-xs-12 col-md-12 titles">
-      <div class="form-group"> <!-- Date input -->
-        <label class="control-label" for="date">Date</label>
-        <input class="form-control" id="date" name="date" type="text"/>
-      </div>
-      </div>
-      <div class="col-lg-6 col-xs-12 col-md-12 titles">
-      <div class="form-group"> <!-- Crew Size -->
-    <label for="crew_size">Size of Work Crew</label>
-      <input name="crew_size" id="crew_size" class="form-control" type="text">
-      </div>
-      </div>
-    </div>
-      <div class="row">
-    <div class="col-lg-6 col-xs-12 col-md-12 titles">
-    <div class="form-group"> <!-- Location -->
-      <label for="location">Location</label>
-      <input name="location" id="location" class="form-control" type="text" placeholder="Provide specific details">
-      </div>
-      </div>
-      <div class="col-lg-6 col-xs-12 col-md-12 titles">
-      <div class="form-group"> <!-- Supervisor Name -->
-      <label for="supervisor">Name of Supervisor/Foreman</label>
-      <input name="supervisor" id="supervisor" class="form-control" type="text">
-      </div>
-      </div>
-      </div>
-
-                                <!-- Contractor Information -->
-    
-    <div class="row">
-    <div class="col-12">
-    <div class="form-group"> <!-- Request By -->
-    <label for="request_by">Requested By</label>
-    <input name="request_by" id="request_by" class="form-control" type="text">
-    </div>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-lg-6 col-xs-12 col-md-12 titles">
-    <div class="form-group"> <!-- Contractor Name -->
-      <label for="contractor">Contractor Name</label>
-      <input name="contractor" id ="contractor" class="form-control" type="text">
-      </div>
-      </div>
-      <div class="col-lg-6 col-xs-12 col-md-12 titles">
-      <div class="form-group"> <!-- Sub-Contractor Name -->
-      <label for="sub_contractor">Sub-Contractor Name</label>
-      <input name="sub_contractor" id="sub_contractor" class="form-control" type="text" placeholder="If applicable">
-      </div>
-      </div>
-      </div>
-
-                                <!-- Work Description -->
-    
+<div class="container">
 <div class="row">
-    <div class="col-12">
-    <div class="form-group"> <!-- Work Description -->
-    <label for="work_description">Work Description</label>
-    <input name="work_description" id="work_description" class="form-control" type="text">
-    </div>
-    </div>
-    </div>
-    <div class="row">
-    <div class="col-lg-6 col-xs-12 col-md-12 titles">
-    <div class="form-group"> <!-- System Name -->
-      <label for="system_name">System Name</label>
-      <input name="system_name" id="system_name" class="form-control" type="text"placeholder="If applicable">
+   <div class="col-12">
+      <div class="permit-bar">GENERAL WORK PERMIT
       </div>
-      </div>
-      <div class="col-lg-6 col-xs-12 col-md-12 titles">
-      <div class="form-group"> <!-- System Number -->
-      <label for="system_number">System Number</label>
-      <input name="system_number" id="system_number" class="form-control" type="text" placeholder="If applicable">
-      </div>
-      </div>
-      </div>
-                                <!-- Equipment/Tools Required -->
-    
-    <div class="row">
-    <div class="col-12">
-    <div class="form-group">
-    <label for="equipment_tools">List all Equipment/Tools Required</label>
-    <textarea name="equipment_tools" id="equipment_tools" class="form-control" id="equipment-tools" rows="3"></textarea>
-    </div>
-    </div>
-    </div>
-
-                                    <!-- Title Break -->
-
-    <div class="row">
-    <div class="col-12">
-    <div class="permit-bar">Standard Controls
-    </div>
-    </div>
-    </div>
-    <br>
-
-                                <!-- Controls of Work -->
-
-    <div class="row">
-    <div class="col-lg-4 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Method Statement -->
-    <input type="checkbox" class="custom-control-input" name="method" id="method">
-    <label class="custom-control-label" for="method">Accepted Method Statement</label>
-    </div>
-    </div>
-    <div class="col-lg-4 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Risk Assessment -->
-    <input type="checkbox" class="custom-control-input" name="risk" id="risk">
-    <label class="custom-control-label" for="risk">Risk Assessment</label>
-    </div>
-    </div>
-    <div class="col-lg-4 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- SPA -->
-    <input type="checkbox" class="custom-control-input" name="spa" id="spa">
-    <label class="custom-control-label" for="spa">Safe Plan of Action - SPA</label>
-    </div>
-    </div>
-    </div>
+   </div>
+</div>
 <br>
-
-                                <!-- Title Break -->
-
-    <div class="row">
-    <div class="col-12">
-    <div class="permit-bar">Work Type Involvement
-    </div>
-    </div>
-    </div>
-    <br>
-    
-                                <!-- Work Involvement -->
-
-    <!-- Excavation -->
-    <div class="row">
-    <div class="col-lg-2 col-xs-12 col-md-12">
-    <h6>Excavation</h6>
-    </div>
-    <div class="col-lg-2 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Scanned -->
-    <input type="checkbox" class="custom-control-input" name="scanned" id="scanned">
-    <label class="custom-control-label" for="scanned">Scanned</label>
-    </div>
-    </div>
-    <div class="col-lg-2 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Shored -->
-    <input type="checkbox" class="custom-control-input" name="shored" id="shored">
-    <label class="custom-control-label" for="shored">Shored</label>
-    </div>
-    </div>
-    <div class="col-lg-2 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Battered -->
-    <input type="checkbox" class="custom-control-input" name="battered" id="battered">
-    <label class="custom-control-label" for="battered">Battered</label>
-    </div>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Construction Skills Card -->
-    <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card">
-    <label class="custom-control-label" for="skills_card">Construction Skills Card</label>
-    </div>
-    </div>
-    </div>
-<hr>
-
-                                    <!-- Confined Space -->
-    <div class="row">
-    <div class="col-lg-2 col-xs-12 col-md-12">
-    <h6>Confined Space</h6>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Atmosphere Tested -->
-    <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere">
-    <label class="custom-control-label" for="atmosphere">Atmosphere Tested</label>
-    </div>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Trained Persons -->
-    <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons">
-    <label class="custom-control-label" for="trained_persons">Trained Persons</label>
-    </div>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Emergency O2 -->
-    <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2">
-    <label class="custom-control-label" for="emerg_o2">Emergency O2</label>
-    </div>
-    </div>
-    </div>
-<hr>
-
-                                    <!-- Electrical Works -->
-    <div class="row">
-    <div class="col-lg-2 col-xs-12 col-md-12">
-    <h6>Electrical Works</h6>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Locked Out -->
-    <input type="checkbox" class="custom-control-input" name="locks" id="locks">
-    <label class="custom-control-label" for="locks">Locked Out</label>
-    </div>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Personnel Locks -->
-    <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks">
-    <label class="custom-control-label" for="persons_locks">Personnel Locks</label>
-    </div>
-    </div>
-    <div class="col-lg-3 col-xs-12 col-md-12">
-    <div class="custom-control custom-switch">      <!-- Energy Released -->
-    <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released">
-    <label class="custom-control-label" for="energy_released">Energy Released</label>
-    </div>
-    </div>
-    </div>
-<hr>
-                                <!-- Specific Task Hazards and Precautions -->
-    
-    <div class="row">
-    <div class="col-12">
-    <div class="form-group">
-    <label for="hazards">List all Task Hazards and Precautions to be taken</label>
-    <textarea class="form-control" name="hazards" id="hazards" rows="3"></textarea>
-    </div>
-    </div>
-    </div>
-
+<div class="container grey-container">
+   <form action="{{ url_for('add_permit') }}" method="POST" autocomplete="off">
+      <div class="row">
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- Date input -->
+               <label class="control-label" for="date">Date</label>
+               <input class="form-control" id="date" name="date" type="text"/>
+            </div>
+         </div>
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- Crew Size -->
+               <label for="crew_size">Size of Work Crew</label>
+               <input name="crew_size" id="crew_size" class="form-control" type="text">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- Location -->
+               <label for="location">Location</label>
+               <input name="location" id="location" class="form-control" type="text" placeholder="Provide specific details">
+            </div>
+         </div>
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- Supervisor Name -->
+               <label for="supervisor">Name of Supervisor/Foreman</label>
+               <input name="supervisor" id="supervisor" class="form-control" type="text">
+            </div>
+         </div>
+      </div>
+      <!-- Contractor Information -->
+      <div class="row">
+         <div class="col-12">
+            <div class="form-group">
+               <!-- Request By -->
+               <label for="request_by">Requested By</label>
+               <input name="request_by" id="request_by" class="form-control" type="text">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- Contractor Name -->
+               <label for="contractor">Contractor Name</label>
+               <input name="contractor" id ="contractor" class="form-control" type="text">
+            </div>
+         </div>
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- Sub-Contractor Name -->
+               <label for="sub_contractor">Sub-Contractor Name</label>
+               <input name="sub_contractor" id="sub_contractor" class="form-control" type="text" placeholder="If applicable">
+            </div>
+         </div>
+      </div>
+      <!-- Work Description -->
+      <div class="row">
+         <div class="col-12">
+            <div class="form-group">
+               <!-- Work Description -->
+               <label for="work_description">Work Description</label>
+               <input name="work_description" id="work_description" class="form-control" type="text">
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- System Name -->
+               <label for="system_name">System Name</label>
+               <input name="system_name" id="system_name" class="form-control" type="text"placeholder="If applicable">
+            </div>
+         </div>
+         <div class="col-lg-6 col-xs-12 col-md-12 titles">
+            <div class="form-group">
+               <!-- System Number -->
+               <label for="system_number">System Number</label>
+               <input name="system_number" id="system_number" class="form-control" type="text" placeholder="If applicable">
+            </div>
+         </div>
+      </div>
+      <!-- Equipment/Tools Required -->
+      <div class="row">
+         <div class="col-12">
+            <div class="form-group">
+               <label for="equipment_tools">List all Equipment/Tools Required</label>
+               <textarea name="equipment_tools" id="equipment_tools" class="form-control" id="equipment-tools" rows="3"></textarea>
+            </div>
+         </div>
+      </div>
+      <!-- Title Break -->
+      <div class="row">
+         <div class="col-12">
+            <div class="permit-bar">Standard Controls
+            </div>
+         </div>
+      </div>
+      <br>
+      <!-- Controls of Work -->
+      <div class="row">
+         <div class="col-lg-4 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Method Statement -->
+               <input type="checkbox" class="custom-control-input" name="method" id="method">
+               <label class="custom-control-label" for="method">Accepted Method Statement</label>
+            </div>
+         </div>
+         <div class="col-lg-4 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Risk Assessment -->
+               <input type="checkbox" class="custom-control-input" name="risk" id="risk">
+               <label class="custom-control-label" for="risk">Risk Assessment</label>
+            </div>
+         </div>
+         <div class="col-lg-4 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- SPA -->
+               <input type="checkbox" class="custom-control-input" name="spa" id="spa">
+               <label class="custom-control-label" for="spa">Safe Plan of Action - SPA</label>
+            </div>
+         </div>
+      </div>
+      <br>
+      <!-- Title Break -->
+      <div class="row">
+         <div class="col-12">
+            <div class="permit-bar">Work Type Involvement
+            </div>
+         </div>
+      </div>
+      <br>
+      <!-- Work Involvement -->
+      <!-- Excavation -->
+      <div class="row">
+         <div class="col-lg-2 col-xs-12 col-md-12">
+            <h6>Excavation</h6>
+         </div>
+         <div class="col-lg-2 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Scanned -->
+               <input type="checkbox" class="custom-control-input" name="scanned" id="scanned">
+               <label class="custom-control-label" for="scanned">Scanned</label>
+            </div>
+         </div>
+         <div class="col-lg-2 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Shored -->
+               <input type="checkbox" class="custom-control-input" name="shored" id="shored">
+               <label class="custom-control-label" for="shored">Shored</label>
+            </div>
+         </div>
+         <div class="col-lg-2 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Battered -->
+               <input type="checkbox" class="custom-control-input" name="battered" id="battered">
+               <label class="custom-control-label" for="battered">Battered</label>
+            </div>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Construction Skills Card -->
+               <input type="checkbox" class="custom-control-input" name="skills_card" id="skills_card">
+               <label class="custom-control-label" for="skills_card">Construction Skills Card</label>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <!-- Confined Space -->
+      <div class="row">
+         <div class="col-lg-2 col-xs-12 col-md-12">
+            <h6>Confined Space</h6>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Atmosphere Tested -->
+               <input type="checkbox" class="custom-control-input" name="atmosphere" id="atmosphere">
+               <label class="custom-control-label" for="atmosphere">Atmosphere Tested</label>
+            </div>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Trained Persons -->
+               <input type="checkbox" class="custom-control-input" name="trained_persons" id="trained_persons">
+               <label class="custom-control-label" for="trained_persons">Trained Persons</label>
+            </div>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Emergency O2 -->
+               <input type="checkbox" class="custom-control-input" name="emerg_o2" id="emerg_o2">
+               <label class="custom-control-label" for="emerg_o2">Emergency O2</label>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <!-- Electrical Works -->
+      <div class="row">
+         <div class="col-lg-2 col-xs-12 col-md-12">
+            <h6>Electrical Works</h6>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Locked Out -->
+               <input type="checkbox" class="custom-control-input" name="locks" id="locks">
+               <label class="custom-control-label" for="locks">Locked Out</label>
+            </div>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Personnel Locks -->
+               <input type="checkbox" class="custom-control-input" name="persons_locks" id="persons_locks">
+               <label class="custom-control-label" for="persons_locks">Personnel Locks</label>
+            </div>
+         </div>
+         <div class="col-lg-3 col-xs-12 col-md-12">
+            <div class="custom-control custom-switch">
+               <!-- Energy Released -->
+               <input type="checkbox" class="custom-control-input" name="energy_released" id="energy_released">
+               <label class="custom-control-label" for="energy_released">Energy Released</label>
+            </div>
+         </div>
+      </div>
+      <hr>
+      <!-- Specific Task Hazards and Precautions -->
+      <div class="row">
+         <div class="col-12">
+            <div class="form-group">
+               <label for="hazards">List all Task Hazards and Precautions to be taken</label>
+               <textarea class="form-control" name="hazards" id="hazards" rows="3"></textarea>
+            </div>
+         </div>
+      </div>
       <!-- Submit button -->
-        <button class="btn btn-primary " type="submit">Submit</button>
-      
-     </form>
+      <button class="btn btn-primary " type="submit">Submit</button>
+   </form>
 </div>
 {% endblock %}

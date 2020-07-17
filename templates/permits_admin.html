@@ -1,55 +1,52 @@
 {% extends 'base.html' %} {% block content %}
-
 <header>
-<nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('permits_admin')}}">View Permits</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('users_admin')}}">View Users</a>
-      </li>
-      </ul>
+   <nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('permits_admin')}}">View Permits</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('users_admin')}}">View Users</a>
+            </li>
+         </ul>
       </div>
-</nav>
+   </nav>
 </header>
 <br>
 <h1 class="page-title">All Permits</h1>
 <br>
-    <div class="container">
-    <div class="table-responsive">
-<table class="table table-body">
-  <thead>
-    <tr>
-      <th scope="col">Date</th>
-      <th scope="col">Contractor</th>
-      <th scope="col">Location</th>
-      <th scope="col">Crew Size</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-  {% for permit in permits %}
-  <tbody class="table-rows">
-    <tr class="each-row">
-      <td>{{permit.date}}</td>
-      <td>{{permit.contractor}}</td>
-      <td>{{permit.location}}</td>
-      <td>{{permit.crew_size}}</td>
-      <td><a class="btn btn-primary" href="{{url_for('view_permit_admin', permits_id=permit._id)}}" role="button">View Permit</a></td>
-      <td><a class="btn btn-danger" href="{{url_for('delete_permit', permits_id=permit._id)}}" role="button">Delete Permit</a></td>
-    </tr>
-  </tbody>
-  {% endfor %}
-</table>
+<div class="container">
+   <div class="table-responsive">
+      <table class="table table-body">
+         <thead>
+            <tr>
+               <th scope="col">Date</th>
+               <th scope="col">Contractor</th>
+               <th scope="col">Location</th>
+               <th scope="col">Crew Size</th>
+               <th scope="col"></th>
+               <th scope="col"></th>
+            </tr>
+         </thead>
+         {% for permit in permits %}
+         <tbody class="table-rows">
+            <tr class="each-row">
+               <td>{{permit.date}}</td>
+               <td>{{permit.contractor}}</td>
+               <td>{{permit.location}}</td>
+               <td>{{permit.crew_size}}</td>
+               <td><a class="btn btn-primary" href="{{url_for('view_permit_admin', permits_id=permit._id)}}" role="button">View Permit</a></td>
+               <td><a class="btn btn-danger" href="{{url_for('delete_permit', permits_id=permit._id)}}" role="button">Delete Permit</a></td>
+            </tr>
+         </tbody>
+         {% endfor %}
+      </table>
+   </div>
 </div>
-            </div>
-            
 {% endblock %}

@@ -1,60 +1,58 @@
 {% extends 'base.html' %} {% block content %}
-
 <header>
-<nav>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-    <li class="nav-item">
-        <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{url_for('admin_login')}}">Admin Login</a>
-      </li>
-      </ul>
+   <nav>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+         <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('new_user')}}">Add User</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{{url_for('admin_login')}}">Admin Login</a>
+            </li>
+         </ul>
       </div>
-</nav>
+   </nav>
 </header>
 <br>
 <h1 class="page-title">Add User</h1>
 <br>
 <div class="container grey-container">
-<br>
-<form action="{{ url_for('add_user') }}" method="POST" autocomplete="off">
-  <div class="form-group">
-    <label for="first_name">First Name</label>
-    <input type="text" class="form-control" id="first_name" name="first_name" required>
-  </div>
-<div class="form-group">
-    <label for="last_name">Last Name</label>
-    <input type="text" class="form-control" id="last_name" name="last_name" required>
-  </div>
-  <div class="form-group">
-    <label for="title">Title</label>
-    <select class="form-control" id="title" name="title">
-    <option>General Operative</option>
-    <option>Electrician</option>
-    <option>QAQC</option>
-    <option>Foreman</option>
-    <option>Supervisor</option>
-    <option>Safety Officer</option>
-    <option>N/A</option>
-    </select>
-  </div>
-<div class="form-group">
-    <label for="company">Company</label>
-    <input type="text" class="form-control" id="company" name="company" required>
-  </div>
-<div class="form-group">
-    <label for="password">Password</label>
-    <input type="text" class="form-control" id="password" name="password" required>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+   <br>
+   <form action="{{ url_for('add_user') }}" method="POST" autocomplete="off">
+      <div class="form-group">
+         <label for="first_name">First Name</label>
+         <input type="text" class="form-control" id="first_name" name="first_name" required>
+      </div>
+      <div class="form-group">
+         <label for="last_name">Last Name</label>
+         <input type="text" class="form-control" id="last_name" name="last_name" required>
+      </div>
+      <div class="form-group">
+         <label for="title">Title</label>
+         <select class="form-control" id="title" name="title">
+            <option>General Operative</option>
+            <option>Electrician</option>
+            <option>QAQC</option>
+            <option>Foreman</option>
+            <option>Supervisor</option>
+            <option>Safety Officer</option>
+            <option>N/A</option>
+         </select>
+      </div>
+      <div class="form-group">
+         <label for="company">Company</label>
+         <input type="text" class="form-control" id="company" name="company" required>
+      </div>
+      <div class="form-group">
+         <label for="password">Password</label>
+         <input type="text" class="form-control" id="password" name="password" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+   </form>
 </div>
 {% endblock %}
