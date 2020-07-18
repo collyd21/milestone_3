@@ -1,6 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 <header>
-   <nav>
    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{url_for('get_users')}}"><img src="../static/images/favicon.ico" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +27,7 @@
       <div class="permit-bar">GENERAL WORK PERMIT
       </div>
    </div>
+</div>
 </div>
 <br>
 <div class="container grey-container">
@@ -105,7 +105,7 @@
             <div class="form-group">
                <!-- System Name -->
                <label for="system_name">System Name</label>
-               <input name="system_name" id="system_name" class="form-control" type="text"placeholder="If applicable">
+               <input name="system_name" id="system_name" class="form-control" type="text" placeholder="If applicable">
             </div>
          </div>
          <div class="col-lg-6 col-xs-12 col-md-12 titles">
@@ -121,7 +121,7 @@
          <div class="col-12">
             <div class="form-group">
                <label for="equipment_tools">List all Equipment/Tools Required</label>
-               <textarea name="equipment_tools" id="equipment_tools" class="form-control" id="equipment-tools" rows="3"></textarea>
+               <textarea name="equipment_tools" id="equipment_tools" class="form-control" rows="3"></textarea>
             </div>
          </div>
       </div>
