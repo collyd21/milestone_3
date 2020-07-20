@@ -38,7 +38,7 @@ When logged in as a User. the options are **Add User**, **View Permits** and **A
 Here all users can be seen. And are arranged with a generic avatar image. Each card also includes the Users information and a login button.
 
 #### User Login / Admin Login
-The User and Admin login pages are the same basic layout with a welcome text and a password field. The page will display the Users first and last name or else will display Administrator if Admin login was selected.
+**ADMIN LOGIN PASSWORD IS "admin" all lowercase** The User and Admin login pages are the same basic layout with a welcome text and a password field. The page will display the Users first and last name or else will display Administrator if Admin login was selected.
 
 #### Add User
 On this page, a new user is created. All fields are required to be filled on this page so that a blank profile can not be set up. The information is stored in the MongoDB database and a User card is then displayed on the User page.
