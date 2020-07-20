@@ -1,5 +1,5 @@
 # General Work Permits
-User Centric Frontend Development Milestone 3 Project.
+Data Centric Development Milestone 3 Project.
 General Work Permits is a browser based permit system for construction sites. Allowing easy creation of permits and accessiblility for these to be read at any time.
 ### User Stories
 As a user I want be able to add a new permit for my days work task.
@@ -68,7 +68,7 @@ When a User clicks the Edit permit button. this will bring them to the same form
 
 Users have the option to just view a permit rather than edit. This will again display the same page as new and edit permit, but this time no field will be editable and toggle switch disabled.
 
-#### Viewwing User List
+#### Viewing User List
 
 The Admin has an additional list to view all users. This is displayed in the same form as the permits list table. The rows for the User table are: 
 - Name
